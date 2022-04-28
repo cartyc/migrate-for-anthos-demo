@@ -1,0 +1,17 @@
+apiVersion: gkehub.cnrm.cloud.google.com/v1beta1
+kind: GKEHubFeature
+metadata:
+  name: migrate-demo-config-management
+  labels:
+    management-group: my-awesome-department
+  annotations:
+    cnrm.cloud.google.com/project-id: "my-awesome-project" # kpt-set: ${project-id}       
+    cnrm.cloud.google.com/blueprint: 'kpt-fn-live'
+  namespace: config-control # kpt-set: ${project-namespace}
+spec:
+  projectRef:
+    external: my-awesome-project # kpt-set: ${project-id}       
+  location: global
+  # The resourceID must be "configmanagement" if you want to use Anthos config
+  # management feature.
+  resourceID: configmanagement
