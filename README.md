@@ -31,6 +31,15 @@ gcloud projects add-iam-policy-binding "${PROJECT_ID}" \
     --project "${PROJECT_ID}"
 ```
 
+Get the demo code.
+
+```
+kpt pkg get https://github.com/cartyc/migrate-for-anthos-demo.git
+```
+```
+cd migrate-for-anthos-demo/configs
+```
+
 Fill in `setters.yaml`
 
 Populate Variables `kpt fn render`
@@ -174,7 +183,7 @@ Over in the GKE Workloads view you should see two applications and
 Part of the initial dpeloyment package was a security bundle to help enforce CIS Security Rules for Kubernetes. As you can see here our application was denied entry to the cluster because it has the `root` user enabled and this is not allowed by the bundle.
 
 ### Fetch the package
-`kpt pkg get REPO_URI[.git]/PKG_PATH[@VERSION] infrastructure`
+`kpt pkg get https://github.com/cartyc/migrate-for-anthos-demo.git`
 Details: https://kpt.dev/reference/cli/pkg/get/
 
 ### View package content
